@@ -1,0 +1,23 @@
+
+
+
+VTUBER_NAME_KEY = 'name'
+VTUBER_OFFICE_KEY = 'office'
+VTUBER_RANK_KEY = 'rank'
+VTUBER_FOLLOWER_KEY = 'follower'
+VTUBER_VIEW_KEY = 'view'
+VTUBER_TWITTER_KEY = 'twitter'
+VTUBER_YOUTUBE_KEY = 'youtube'
+
+VTUBER_GENDER = 'gender'
+
+VTUBER_AGE_KEY = 'age'
+VTUBER_HEIGHT_KEY = 'height'
+VTUBER_BIRTHDAY_KEY = 'birthday'
+
+VTUBER_FAKE_AGE_KEY = 'fakeage'
+VTUBER_WEIGHT_KEY = 'weight'
+VTUBER_CAREER_KEY = 'career'
+
+UNKNOWN_TEXT = 'unknown'
+UNKNOWN_INT = -1
