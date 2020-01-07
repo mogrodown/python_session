@@ -49,17 +49,3 @@ class RankingScraper(object):
 
                 vtubers.append(vtuber)
         return vtubers
-
-        '''
-            if 'にじさんじ' in vtuber[dbkey.VTUBER_OFFICE_KEY]:
-                vtuber.update(NijisanjiScraper(vtuber[dbkey.VTUBER_NAME_KEY].strip().split('(')[0].replace(' ', '')).solve())
-
-                if dbkey.VTUBER_YOUTUBE_KEY not in vtuber:
-                    if dbkey.VTUBER_TWITTER_KEY in vtuber:
-                        twitter = Twitter(vtuber[dbkey.VTUBER_TWITTER_KEY])
-                        vtuber[dbkey.VTUBER_YOUTUBE_KEY] = twitter.youtube_url()
-                vtubers.append(vtuber)
-                '''
-
-if __name__ == '__main__':
-    pass

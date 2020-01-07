@@ -49,6 +49,9 @@ class BSTag(object):
             if param == '生年月日：西暦0年4月22日':
                 continue  # うまく処理できず。捨て。
 
+            if not re.search('[0-9]{1,30}', param):
+                continue  # 数値データが含まれてない。捨て。
+
             if param.startswith('肉体年齢'):
                 data_sets.append(('Fake年齢', age(param)))
             elif param.startswith('年齢') or param.startswith('ねんれい'):

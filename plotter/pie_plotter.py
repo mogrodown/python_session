@@ -9,8 +9,8 @@ from plotter.plotter import Plotter
 
 
 class PiePlotter(Plotter):
-    def __init__(self, db_path):
-        super().__init__(db_path)
+    def __init__(self, data_frame=pd.DataFrame(), db_path=''):
+        super().__init__(data_frame, db_path)
 
     def plot(self, output_column_name, unit):
 
