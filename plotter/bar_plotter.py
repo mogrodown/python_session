@@ -16,6 +16,11 @@ class BarPlotter(Plotter):
         plt.bar(x_items, y_items)
         plt.show()
 
+    def hist(self, column_name, upper_limit, interval):
+        pd.cut(getattr(self._df, column_name), list(range(0, upper_limit, interval)), right=False).value_counts().sort_index().plot.bar(color='gray')
+        plt.subplots_adjust(left=0.1, right=0.95, bottom=0.25, top=0.95)
+        plt.show()
+
     def plot(self, x_column_name, y_column_name, collect_column_name = '', keyword = ''):
 
         print(collect_column_name)

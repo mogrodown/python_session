@@ -10,9 +10,9 @@ class RankingScraper(object):
     def __init__(self):
         pass
 
-    def get_ranking_data(self):
+    def get_ranking_data(self, page):
         vtubers = []
-        for p in range(6):
+        for p in range(page):
             factory = TagFactory(RANKING_URL.format(p + 1))
             tag = factory.tag('table', {'class':'table-ranking'})
             for tr in tag.each('tr'):
