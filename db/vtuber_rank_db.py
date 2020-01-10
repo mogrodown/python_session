@@ -7,8 +7,6 @@ DBNAME = 'vtuber.db'
 CRT_TBL = '''
     CREATE TABLE IF NOT EXISTS vtuber_rank
     (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-
         name TEXT NOT NULL UNIQUE,
         office TEXT NOT NULL,
 

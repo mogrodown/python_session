@@ -5,7 +5,7 @@ from scraper.ranking_scraper import RankingScraper
 from db.vtuber_rank_db import VTuberRankDB, AlreadyExistDBError
 import db.dbkey as dbkey
 
-vtubers = RankingScraper().get_ranking_data()
+vtubers = RankingScraper().get_ranking_data(6)
 db = VTuberRankDB()
 for vtuber in vtubers:
     if vtuber[dbkey.VTUBER_VIEW_KEY] <= 0:
