@@ -6,6 +6,11 @@ bs = BeautifulSoup(html.text, 'html.parser')
 # print(bs)
 # print(bs.text)
 # print(bs.h1.text)
+print(bs.title.text)
+
 # print(bs.a['href'])
+
+'''
 for a in bs.find_all('a'):
 	print(a['href'])
+'''
