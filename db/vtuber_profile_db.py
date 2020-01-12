@@ -3,7 +3,6 @@
 import sqlite3
 from .vtuber_db import AlreadyExistDBError
 
-DBNAME = 'vtuber.db'
 
 CRT_TBL = '''
     CREATE TABLE IF NOT EXISTS vtuber_profile
@@ -20,8 +19,8 @@ INS_TBL = '''
 SEL_ALL_TBL = '''SELECT * FROM vtuber_profile;'''
 
 class VTuberProfileDB(object):
-    def __init__(self):
-        self._con = sqlite3.connect(DBNAME)
+    def __init__(self, db_path):
+        self._con = sqlite3.connect(db_path)
         self._con.execute(CRT_TBL)
 
     def insert(self, name, age, height, birthday):

@@ -3,7 +3,6 @@
 import sqlite3
 from .vtuber_db import AlreadyExistDBError
 
-DBNAME = 'vtuber.db'
 CRT_TBL = '''
     CREATE TABLE IF NOT EXISTS vtuber_rank
     (
@@ -23,8 +22,8 @@ INS_TBL = '''
 SEL_ALL_TBL = '''SELECT * FROM vtuber_rank;'''
 
 class VTuberRankDB(object):
-    def __init__(self):
-        self._con = sqlite3.connect(DBNAME)
+    def __init__(self, db_path):
+        self._con = sqlite3.connect(db_path)
         self._con.execute(CRT_TBL)
         # データ件数も少ないので、DB操作をカプセル化したカーソルは使用しない。
 

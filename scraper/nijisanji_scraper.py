@@ -23,6 +23,12 @@ class NijisanjiScraper(object):
     def _get_profile(self, url):
         factory = TagFactory('https://wikiwiki.jp/' + url)
         vtuber = {}
+
+        # VTUBERによって、取得できないパラメータもあるので、初期値を入れておく。
+        vtuber[dbkey.VTUBER_BIRTHDAY_KEY] = dbkey.UNKNOWN_TEXT
+        vtuber[dbkey.VTUBER_AGE_KEY] = dbkey.UNKNOWN_TEXT
+        vtuber[dbkey.VTUBER_HEIGHT_KEY] = dbkey.UNKNOWN_TEXT
+
         vtuber[dbkey.VTUBER_NAME_KEY] = self._vtuber_name
         keyword_group = [('h3', 'プロフィール'), ('h2', 'プロフィール'), ('h2', '紹介')]
         for k in keyword_group:

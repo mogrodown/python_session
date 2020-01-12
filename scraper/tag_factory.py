@@ -26,6 +26,11 @@ class BSTag(object):
 
     def _param_iterator(self):
         if self._tag.name == 'ul' or self._tag.name == 'p':
+            if self._tag.name == 'ul':
+                print('UL ALL TEXT = [{}]'.format(self._tag.text))
+            elif self._tag.name == 'p':
+                print('P ALL TEXT = [{}]'.format(self._tag.text))
+
             for line in self._tag.text.splitlines():
                 yield line
         elif self._tag.name == 'div':
