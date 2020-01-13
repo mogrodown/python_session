@@ -30,7 +30,7 @@ ns = df[df['office'] == 'にじさんじ']
 vtubers = []
 if not USE_DUMP:
     for n in ns['name']:
-        print(n)
+        # print(n)
         vtubers.append(NijisanjiScraper(n).profile())
 
     # 取得した情報をyamlファイルへ退避しておく。
@@ -44,7 +44,7 @@ else:
 os.remove('./nijisanji_profile.db')
 db = VTuberProfileDB('./nijisanji_profile.db')
 for v in vtubers:
-    print(v)
+    # print(v)
     try:
         db.insert(
             v[dbkey.VTUBER_NAME_KEY],
@@ -63,7 +63,13 @@ df_vtubers = df_vtubers[df_vtubers['height'] != 'unknown']
 # 50歳以上のライバーをdf機能で絞り込み
 print(df_vtubers[df_vtubers['age'] > 50])
 
+# print(df_vtubers['height'].describe())
+print(df_vtubers['height'].min())
+print(df_vtubers['height'].max())
+print(df_vtubers['height'].mean())
+print(df_vtubers['height'].std())
 
+'''
 # 年齢(500歳未満)プロット
 df = df_vtubers[df_vtubers['age'] < 500]
 plotter = BarPlotter(data_frame=df)
@@ -77,3 +83,4 @@ plotter.plot('name', 'height')
 df = df_vtubers[df_vtubers['age'] < 100]
 plotter = BarPlotter(data_frame=df)
 plotter.hist('age', 100, 10)
+'''
