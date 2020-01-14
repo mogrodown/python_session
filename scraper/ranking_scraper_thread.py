@@ -1,4 +1,7 @@
-import asyncio
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
+
+from multiprocessing import Pool
 
 import db.dbkey as dbkey
 import common.util as util
@@ -9,14 +12,26 @@ BASE_URL = 'https://virtual-youtuber.userlocal.jp/'
 RANKING_URL = BASE_URL + 'document/ranking?page={}'
 
 class RankingScraper(object):
+
+    MULTI_PROC  = 'exec multiprocess'
+    THREAD_PROC = 'exec multithread'
+    NO_PROC     = 'exec no multi process and thread'
+
     def __init__(self):
         pass
 
-    def get_ranking_data(self, page):
+    def ranking(self, page):
+
         vtubers = []
         for p in range(page):
+
+            # ランキングサイトのタグファクトリ生成
             factory = TagFactory(RANKING_URL.format(p + 1))
+
+            # ランキングテーブルのタグ参照
             tag = factory.tag('table', {'class':'table-ranking'})
+
+            # VTuber名称、順位、詳細ページURLを抽出
             for tr in tag.each('tr'):
                 vtuber = {}
                 vtuber[dbkey.VTUBER_OFFICE_KEY] = dbkey.UNKNOWN_TEXT
@@ -26,27 +41,56 @@ class RankingScraper(object):
                 vtuber[dbkey.VTUBER_RANK_KEY] = tr.strong()
                 vtuber['url'] = tr.url()
                 vtubers.append(vtuber)
+
         return vtubers
 
-    def get_detail(self, vtubers):
-        from concurrent.futures import ThreadPoolExecutor
-        with ThreadPoolExecutor(max_workers=2, thread_name_prefix="thread")as executor:
-            for n in range(3):
-                executor.submit(self._detail, vtubers[n])
-        print('end=========')
+    def profiles(self, vtubers, exec_proc = NO_PROC):
 
-    async def _detail(self, vtuber):
-        print('AAAAAAAAAAAAAA')
-        # 詳細ページへジャンプしてスクレイピング
+        # VTuber詳細ページでプロフィール抽出
+
+        # 通常実行
+        if exec_proc == self.NO_PROC:
+            for n in range(len(vtubers)):
+                self._profile(vtubers[n])
+
+        # マルチスレッド実行
+        elif exec_proc == self.THREAD_PROC:
+            with ThreadPoolExecutor(max_workers=4, thread_name_prefix="thread")as executor:
+                for n in range(len(vtubers)):
+                    executor.submit(self._profile, vtubers[n])
+
+        # マルチプロセス実行
+        elif exec_proc == self.MULTI_PROC:
+            print('ZZZZZZZZZZZZZ')
+            ret_values = []
+            with ProcessPoolExecutor() as executor:
+                for n in range(len(vtubers)):
+                    ret_value = executor.submit(self._profile, vtubers[n])
+                    ret_values.append(ret_value)
+
+            u = []
+            for r in ret_values:
+                u.append(r.result())
+        
+
+    def _profile(self, vtuber):
+
+        # プロフィールサイトのタグファクトリ生成
         factory = TagFactory(BASE_URL + vtuber['url'])
+
+        # チャンネル情報全体のタグ参照
         tag = factory.tag('div', {'class': 'box-channel-info'})
+
+        # VTuber所属オフィスを抽出
         try:
             vtuber[dbkey.VTUBER_OFFICE_KEY] = tag.child('img').alt().split('(')[0]
         except BSTagError as ex:
-            print('failed to get office : {}'.format(ex.args))
-            print(vtuber[dbkey.VTUBER_NAME_KEY])
+            print('failed to get {} office : {}'.format(vtuber[dbkey.VTUBER_NAME_KEY], ex.args))
 
+        # チャンネル詳細のタグ参nk': '1位', 'url': '/user/D780B63C2DEBA9A2_fa95ae'}, {'office': 'unknown', 'twitj照
         for tag in tag.each('div', {'class': 'channel-stat'}):
+
+            # 全テキストを抽出し、各行(パラメータ)からファン数、総再生回数、Twitterを抽出
             params = [tag for tag in tag.text().split('\n') if tag]
             if params[0] == 'ファン数':
                 vtuber[dbkey.VTUBER_FOLLOWER_KEY] = util.kanji_numeric(params[1], '人')
@@ -60,4 +104,5 @@ class RankingScraper(object):
                 except TwitterError as ex:
                     print(ex)
 
-        print('VVVVVV = {}'.format(vtuber))
+        return vtuber
+
