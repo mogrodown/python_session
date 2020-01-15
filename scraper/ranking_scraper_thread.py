@@ -52,25 +52,26 @@ class RankingScraper(object):
         if exec_proc == self.NO_PROC:
             for n in range(len(vtubers)):
                 self._profile(vtubers[n])
+            return vtubers
 
         # マルチスレッド実行
         elif exec_proc == self.THREAD_PROC:
             with ThreadPoolExecutor(max_workers=4, thread_name_prefix="thread")as executor:
                 for n in range(len(vtubers)):
                     executor.submit(self._profile, vtubers[n])
+            return vtubers
 
         # マルチプロセス実行
         elif exec_proc == self.MULTI_PROC:
-            print('ZZZZZZZZZZZZZ')
-            ret_values = []
+            r_list = []
             with ProcessPoolExecutor() as executor:
                 for n in range(len(vtubers)):
-                    ret_value = executor.submit(self._profile, vtubers[n])
-                    ret_values.append(ret_value)
+                    r_list.append(executor.submit(self._profile, vtubers[n]))
 
-            u = []
-            for r in ret_values:
-                u.append(r.result())
+            u_vtubers = []
+            for r in r_list:
+                u_vtubers.append(r.result())
+            return u_vtubers
         
 
     def _profile(self, vtuber):

@@ -1,12 +1,13 @@
 from plotter.pie_plotter import PiePlotter
 from plotter.bar_plotter import BarPlotter
 
-plotter = PiePlotter(db_path='./db/vtuber.db')
+# オフィス分布
+plotter = PiePlotter(db_path='./db/vtuber_rank.db')
 plotter.plot('office', '人')
 plotter.plot_by('view', 'office')
 
-plotter = BarPlotter(db_path='./db/vtuber.db')
-
+# オフィス毎指標
+plotter = BarPlotter(db_path='./db/vtuber_rank.db')
 keywords = ['にじさんじ', 'ホロライブ', 'upd8', '.LIVE', 'unknown']
 for k in keywords:
     plotter.plot('name', 'view', 'office', k)       # 視聴者数棒グラフ
