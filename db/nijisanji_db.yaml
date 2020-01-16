@@ -1,6 +1,6 @@
 - {age: 16, birthday: 9/24, height: 151, name: 月ノ美兎}
 - {age: 19, birthday: unknown, height: 153, name: 本間ひまわり}
-- {age: unknown, birthday: unknown, height: 148, name: 笹木咲}
+- {age: 17, birthday: unknown, height: 148, name: 笹木咲}
 - {age: 17, birthday: unknown, height: 167, name: 樋口楓}
 - {age: 16, birthday: 4/17, height: 153, name: 椎名唯華}
 - {age: 17, birthday: 8/28, height: 158, name: 静凛}
@@ -10,7 +10,6 @@
 - {age: 17, birthday: 5/25, height: 166, name: リゼ・ヘルエスタ}
 - {age: 17, birthday: 4/16, height: 167, name: 緑仙}
 - {age: 100, birthday: 11/10, height: 178, name: 葛葉}
-- {}
 - {age: 21, birthday: unknown, height: 162, name: 鈴原るる}
 - {age: 27, birthday: 9/30, height: 147, name: アンジュ・カトリーナ}
 - {age: 10000000000, birthday: 11/3, height: 191, name: ベルモンド・バンデラス}
@@ -34,7 +33,6 @@
 - {age: 28, birthday: unknown, height: 182, name: 加賀美ハヤト}
 - {age: 15, birthday: 2/27, height: unknown, name: 夜見れな}
 - {age: unknown, birthday: 12/18, height: unknown, name: でびでび・でびる}
-- {}
 - {age: 20, birthday: unknown, height: unknown, name: 花畑チャイカ}
 - {age: unknown, birthday: 5/14, height: 163, name: 健屋花那}
 - {age: 34, birthday: 11/9, height: 178, name: 舞元啓介}
@@ -42,7 +40,6 @@
 - {age: 27, birthday: 6/28, height: 175, name: 夢追翔}
 - {age: 19, birthday: 4/1, height: 150, name: 桜凛月}
 - {age: 16, birthday: 11/7, height: 154, name: 家長むぎ}
-- {}
 - {age: 17, birthday: 2/19, height: 152, name: 葉加瀬冬雪}
 - {age: 20, birthday: 9/1, height: 168, name: 三枝明那}
 - {age: unknown, birthday: 8/7, height: 155, name: 星川サラ}

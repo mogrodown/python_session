@@ -53,7 +53,7 @@ def count_age(birthday_text):
 	return result.years
 
 def age(text, is_required=True):
-	print('FMT : age: text = {}'.format(text))
+	# print('FMT : age: text = {}'.format(text))
 	if text in AGE_SET:
 		return AGE_SET[text]
 
@@ -91,7 +91,7 @@ def age(text, is_required=True):
 	return -1
 
 def birthday(text):
-	print('FMT : birthday : text = {}'.format(text))
+	# print('FMT : birthday : text = {}'.format(text))
 	match = re.search('[0-9]{1,2}/[0-9]{1,2}', text)
 	if match:
 		return match[0]
@@ -103,7 +103,7 @@ def birthday(text):
 	raise DataFormatError('invalid birthday format : {}'.format(text))
 
 def height(text):
-	print('FMT : height : text = {}'.format(text))
+	# print('FMT : height : text = {}'.format(text))
 	if text in HEIGHT_SET:
 		return HEIGHT_SET[text]
 

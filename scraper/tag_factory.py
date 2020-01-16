@@ -26,11 +26,6 @@ class BSTag(object):
 
     def _param_iterator(self):
         if self._tag.name == 'ul' or self._tag.name == 'p':
-            if self._tag.name == 'ul':
-                print('UL ALL TEXT = [{}]'.format(self._tag.text))
-            elif self._tag.name == 'p':
-                print('P ALL TEXT = [{}]'.format(self._tag.text))
-
             for line in self._tag.text.splitlines():
                 yield line
         elif self._tag.name == 'div':
@@ -45,7 +40,6 @@ class BSTag(object):
     def param(self):
         data_sets = []
         for param in self._param_iterator():
-            print(param)
             if '歳のとり方' in param or '歳はとる' in param:
                 # 森中のややこしいパラメータ構造をうまく処理できてない。捨て。
                 continue
@@ -65,7 +59,6 @@ class BSTag(object):
                 data_sets.append(('身長', height(param)))
             elif param.startswith('誕生日') or param.startswith('たんじょび'):
                 param = param.split('（')[0].split('(')[0] # ()の情報がややこしくなるので削除(月ノ美兎)
-                print('p = {}'.format(param))
                 if '年' in param:
                     data_sets.append(('年齢', age(param)))
                 else:
