@@ -54,7 +54,7 @@ class NijisanjiScraper(object):
 
         # VTUBERによって取得できないパラメータもあるので、初期値を入れておく。
         vtuber[dbkey.VTUBER_BIRTHDAY_KEY]   = dbkey.UNKNOWN_TEXT
-        vtuber[dbkey.VTUBER_AGE_KEY]        = dbkey.UNKNOWN_TEXT
+        vtuber[dbkey.VTUBER_AGE_KEY]        = -1
         vtuber[dbkey.VTUBER_HEIGHT_KEY]     = dbkey.UNKNOWN_TEXT
 
         vtuber[dbkey.VTUBER_NAME_KEY] = self._name
@@ -131,6 +131,7 @@ class NijisanjiScraper(object):
         return vtuber
 
 if __name__ == '__main__':
-    print(NijisanjiScraper('樋口楓').profile())
+    # print(NijisanjiScraper('樋口楓').profile())
+    print(NijisanjiScraper('森中花咲').profile())
     # print(NijisanjiScraper('エクス・アルビオ').profile())
     # print(NijisanjiScraper('笹木咲').profile())

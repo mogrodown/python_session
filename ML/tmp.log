@@ -1,0 +1,1000 @@
+  428  mkdir github
+  429  cd github/
+  430  ls
+  431  git clone git@github.com:mogrodown/pyhon_session.git
+  432  ls -tl
+  433  cd ~/.ssh
+  434  ssh-keygen -t rsa
+  435  cat id_rsa.pub 
+  436  cd
+  437  cd -
+  438  ls
+  439  cd /mnt/c/python中級講座/
+  440  ls
+  441  git clone git@github.com:mogrodown/pyhon_session.git
+  442  ls
+  443  cd python_session/
+  444  ls
+  445  cd SESSION/
+  446  ls
+  447  cd ../../
+  448  ls -tl
+  449  cd pyhon_session/
+  450  ls
+  451  git branch
+  452  cp ../python_session/SESSION/* .
+  453  cp -r ../python_session/SESSION/* .
+  454  ls
+  455  rm -rf channel_info/
+  456  ls
+  457  rm -rf archive/
+  458  ls -tl
+  459  rm -rf スナップ
+  460  ls
+  461  s -tl
+  462  ls -tl
+  463  cd tool/
+  464  ls
+  465  rm twitter.py 
+  466  ls
+  467  rm youtube_user.py 
+  468  ls
+  469  rm vtuber_search.youtubeAPI.py 
+  470  ls
+  471  rm test.py 
+  472  ls
+  473  cd ../
+  474  ls
+  475  rm -rf tool/
+  476  ls
+  477  rm vtuber_nijisanji_scraping.py 
+  478  ls
+  479  rm nijisanji_scraping.py 
+  480  ls
+  481  cd common/
+  482  ls
+  483  cd ..
+  484  ls
+  485  ls db
+  486  ls doc
+  487  rm doc/python中級講座*
+  488  ls
+  489  ls doc/
+  490  ls doc
+  491  ls
+  492  ls plotter/
+  493  ls scrap
+  494  ls scraper/
+  495  rm scraper/wiki_scraper.py scraper/fuji_aoi_scraper.py scraper/hololive_scraper.py scraper/pixiv_scraper.py 
+  496  ls scraper/
+  497  ls
+  498  git status ./
+  499  git add common/ db doc/ draw_vtuber.py plotter/ scraper/ scraping_nijisanji.py scraping_vtuber_rank.py vtuber.db 
+  500  git push origin master
+  501  git commit -m "プロトタイプ1"
+  502  git push origin master 
+  503  git status ./
+  504  cd ..
+  505  ls
+  506  rm -rf pyhon_session/
+  507  ls
+  508  mkdir github
+  509  exit
+  510  ls
+  511  cd /mnt/c/python中級講座/
+  512  ls
+  513  cd python_session/SESSION/plotter/
+  514  ls
+  515  vi pie_plotter.py 
+  516  cd ../scraper/
+  517  ls
+  518  vi nijisanji_scraper.py 
+  519  vi ../plotter/bar_plotter.py 
+  520  ls
+  521  view nijisanji_scraper.py 
+  522  grep dbkey *
+  523  vi nijisanji_scraper.py 
+  524  grep data_formatter *
+  525  vi nijisanji_scraper.py 
+  526  vi tag_factory.py 
+  527  vi data_formatter.py 
+  528  vi nijisanji_scraper.py 
+  529  ls
+  530  vi data_formatter.py 
+  531  vi tag_factory.py 
+  532  vi ranking_scraper.py 
+  533  vi tag_factory.py 
+  534  vi nijisanji_scraper.py 
+  535  exit
+  536  cd python_session/SESSION/
+  537  ls
+  538  cd plotter/
+  539  view plotter.py 
+  540  vi bar_plotter.py 
+  541  view plotter.py 
+  542  cd ..
+  543  ls
+  544  cp vtuber.db  archive/
+  545  ls
+  546  cd
+  547  ls
+  548  tar cvzf python_session.tgz python_session/
+  549  ls
+  550  rm -rf python_session
+  551  ls
+  552  cd /mnt/c/python中級講座/
+  553  ls
+  554  cd python_session/SESSION/
+  555  ls
+  556  python3 scraping_vtuber_rank.py 
+  557  ls
+  558  sqlite3 vtuber.db 
+  559  ls
+  560  vi scraping_vtuber_rank.py 
+  561  vi scraper/ranking_scraper.py 
+  562  ls -tl 
+  563  rm vtuber.db 
+  564  ls -tl
+  565  ls archive/
+  566  python3 scraping_vtuber_rank.py 
+  567  ls -tl
+  568  sqlite3 vtuber.db 
+  569  exit
+  570  python3
+  571  exit
+  572  cd /mnt/c/python中級講座/
+  573  ls
+  574  cd github/
+  575  ls
+  576  cd python_session/
+  577  ls
+  578  vi draw_vtuber.py 
+  579  ls
+  580  cd plotter/
+  581  ls
+  582  vi plotter.py 
+  583  vi ../draw_vtuber.py 
+  584  vi bar_plotter.py 
+  585  cd ..
+  586  vi draw_vtuber.py 
+  587  vi plotter/plotter.py 
+  588  vi draw_vtuber.py 
+  589  python3 draw_vtuber.py 
+  590  vi plotter/bar_plotter.py 
+  591  python3 draw_vtuber.py 
+  592  vi plotter/bar_plotter.py 
+  593  vi plotter/pie_plotter.py 
+  594  python3 draw_vtuber.py 
+  595  vi plotter/plotter.py 
+  596  vi plotter/bar_plotter.py 
+  597  vi draw_vtuber.py 
+  598  python3 draw_vtuber.py 
+  599  vi draw_vtuber.py 
+  600  python3 draw_vtuber.py 
+  601  vi draw_vtuber.py 
+  602  vi plotter/pie_plotter.py 
+  603  vi plotter/plotter.py 
+  604  vi draw_vtuber.py 
+  605  python3 draw_vtuber.py 
+  606  vi plotter/bar_plotter.py 
+  607  vi plotter/plotter.py 
+  608  vi draw_vtuber.py 
+  609  python3 draw_vtuber.py 
+  610  vi draw_vtuber.py 
+  611  vi plotter/pie_plotter.py 
+  612  python3 draw_vtuber.py 
+  613  vi plotter/bar_plotter.py 
+  614  python3 draw_vtuber.py 
+  615  vi scraper/nijisanji_scraper.py 
+  616  vi scraper/data_formatter.py 
+  617  vi scraper/tag_factory.py 
+  618  python3 scraping_nijisanji.py 
+  619  vi scraping_nijisanji.py 
+  620  python3 scraping_nijisanji.py 
+  621  vi scraping_nijisanji.py 
+  622  python3 scraping_nijisanji.py 
+  623  vi scraping_nijisanji.py 
+  624  python3 scraping_nijisanji.py 
+  625  vi scraping_nijisanji.py 
+  626  python3 scraping_nijisanji.py 
+  627  vi scraping_nijisanji.py 
+  628  python3 scraping_nijisanji.py 
+  629  vi scraping_nijisanji.py 
+  630  python3 scraping_nijisanji.py 
+  631  vi scraping_nijisanji.py 
+  632  python3 scraping_nijisanji.py 
+  633  vi scraping_nijisanji.py 
+  634  python3 scraping_nijisanji.py 
+  635  vi scraping_nijisanji.py 
+  636  python3 scraping_nijisanji.py 
+  637  vi scraping_nijisanji.py 
+  638  python3 scraping_nijisanji.py 
+  639  git status ./
+  640  ls
+  641  vi .gitignore
+  642  git status ./
+  643  mv .gitignore ~/
+  644  ls ~/.gitignore 
+  645  git config --global --add core.excludesfile "$HOME/.gitignore"
+  646  git status ./
+  647  git status
+  648  git rm common/__pycache__/__init__.cpython-36.pyc
+  649  git checkout  common/__pycache__/__init__.cpython-36.pyc common/__pycache__/util.cpython-36.pyc db/__pycache__/__init__.cpython-36.pyc db/__pycache__/dbkey.cpython-36.pyc db/__pycache__/vtuber_db.cpython-36.pyc  plotter/__pycache__/__init__.cpython-36.pyc plotter/__pycache__/bar_plotter.cpython-36.pyc plotter/__pycache__/pie_plotter.cpython-36.pyc plotter/__pycache__/plotter.cpython-36.pyc  scraper/__pycache__/data_formatter.cpython-36.pyc scraper/__pycache__/nijisanji_scraper.cpython-36.pyc scraper/__pycache__/ranking_scraper.cpython-36.pyc scraper/__pycache__/tag_factory.cpython-36.pyc
+  650  git rm  common/__pycache__/__init__.cpython-36.pyc common/__pycache__/util.cpython-36.pyc db/__pycache__/__init__.cpython-36.pyc db/__pycache__/dbkey.cpython-36.pyc db/__pycache__/vtuber_db.cpython-36.pyc  plotter/__pycache__/__init__.cpython-36.pyc plotter/__pycache__/bar_plotter.cpython-36.pyc plotter/__pycache__/pie_plotter.cpython-36.pyc plotter/__pycache__/plotter.cpython-36.pyc  scraper/__pycache__/data_formatter.cpython-36.pyc scraper/__pycache__/nijisanji_scraper.cpython-36.pyc scraper/__pycache__/ranking_scraper.cpython-36.pyc scraper/__pycache__/tag_factory.cpython-36.pyc
+  651  git commit -m "delete no need file"
+  652  git push origin de
+  653  git push origin master
+  654  git status 
+  655  git checkout db/__pycache__/vtuber_rank_db.cpython-36.pyc
+  656  git rm db/__pycache__/vtuber_rank_db.cpython-36.pyc
+  657  git status ./
+  658  git add doc/python中級講座_2020.pptx draw_vtuber.py plotter/bar_plotter.py plotter/pie_plotter.py plotter/plotter.py scraper/ranking_scraper.py scraper/tag_factory.py scraping_nijisanji.py 
+  659  git commit -m "z"
+  660  git push origin master
+  661  ks
+  662  ls
+  663  cd /mnt/c/python中級講座/
+  664  ls
+  665  cd github/
+  666  ls
+  667  cd python_session/
+  668  ls
+  669  git status ./
+  670  cd ../
+  671  ls
+  672  mv python_session python_session2
+  673  git clone git@github.com:mogrodown/python_session.git
+  674  ls
+  675  cp -r python_session2/* python_session/
+  676  cp  python_session2/* python_session/
+  677  cd python_session
+  678  ls
+  679  git status ./
+  680  ls -tl
+  681  python3 scraping_nijisanji.py 
+  682  select * from vtubers;
+  683  sqlite3 
+  684  sqlite3 db/vtuber.db 
+  685  ls
+  686  vi scraping_nijisanji.py 
+  687  ls -l
+  688  python3 scraping_nijisanji.py 
+  689  vi scraping_nijisanji.py 
+  690  python3 scraping_nijisanji.py 
+  691  vi scraping_nijisanji.py 
+  692  python3 scraping_nijisanji.py 
+  693  vi scraping_nijisanji.py 
+  694  cd ../python_session2
+  695  ls
+  696  vi scraping_nijisanji.py 
+  697  cd ../
+  698  ls
+  699  cd python_session2
+  700  ls
+  701  vi scraping_nijisanji.py 
+  702  cd scraper/
+  703  ls
+  704  vi nijisanji_scraper.py 
+  705  cd ../
+  706  cd python_session
+  707  ls
+  708  vi scraping_nijisanji.py 
+  709  python3 scraping_nijisanji.py 
+  710  vi scraping_nijisanji.py 
+  711  python3 scraping_nijisanji.py 
+  712  vi scraping_nijisanji.py 
+  713  python3 scraping_nijisanji.py 
+  714  vi scraping_nijisanji.py 
+  715  python3 scraping_nijisanji.py 
+  716  vi scraping_nijisanji.py 
+  717  python3 scraping_nijisanji.py 
+  718  vi scraping_nijisanji.py 
+  719  python3 scraping_nijisanji.py 
+  720  vi scraping_nijisanji.py 
+  721  python3 scraping_nijisanji.py 
+  722  vi scraping_nijisanji.py 
+  723  python3 scraping_nijisanji.py 
+  724  vi scraping_nijisanji.py 
+  725  python3 scraping_nijisanji.py 
+  726  vi scraping_nijisanji.py 
+  727  python3 scraping_nijisanji.py 
+  728  vi scraping_nijisanji.py 
+  729  python3 scraping_nijisanji.py 
+  730  vi scraping_nijisanji.py 
+  731  python3 scraping_nijisanji.py 
+  732  vi scraping_nijisanji.py 
+  733  python3 scraping_nijisanji.py 
+  734  vi scraping_nijisanji.py 
+  735  python3 scraping_nijisanji.py 
+  736  vi scraping_nijisanji.py 
+  737  python3 scraping_nijisanji.py 
+  738  vi scraping_nijisanji.py 
+  739  python3 scraping_nijisanji.py 
+  740  vi scraping_nijisanji.py 
+  741  python3 scraping_nijisanji.py 
+  742  vi scraping_nijisanji.py 
+  743  python3 scraping_nijisanji.py 
+  744  vi scraping_nijisanji.py 
+  745  python3 scraping_nijisanji.py 
+  746  vi scraping_nijisanji.py 
+  747  python3 scraping_nijisanji.py 
+  748  vi scraping_nijisanji.py 
+  749  python3 scraping_nijisanji.py 
+  750  vi scraping_nijisanji.py 
+  751  python3 scraping_nijisanji.py 
+  752  vi scraping_nijisanji.py 
+  753  python3 scraping_nijisanji.py 
+  754  vi scraping_nijisanji.py 
+  755  python3 scraping_nijisanji.py 
+  756  vi scraping_nijisanji.py 
+  757  python3 scraping_nijisanji.py 
+  758  vi scraping_nijisanji.py 
+  759  python3 scraping_nijisanji.py 
+  760  vi scraping_nijisanji.py 
+  761  python3 scraping_nijisanji.py 
+  762  vi scraping_nijisanji.py 
+  763  python3 scraping_nijisanji.py 
+  764  vi scraping_nijisanji.py 
+  765  python3 scraping_nijisanji.py 
+  766  vi scraping_nijisanji.py 
+  767  python3 scraping_nijisanji.py 
+  768  vi scraping_nijisanji.py 
+  769  python3 scraping_nijisanji.py 
+  770  vi scraping_nijisanji.py 
+  771  python3 scraping_nijisanji.py 
+  772  vi scraping_nijisanji.py 
+  773  python3 scraping_nijisanji.py 
+  774  vi scraping_nijisanji.py 
+  775  python3 scraping_nijisanji.py 
+  776  vi scraping_nijisanji.py 
+  777  python3 scraping_nijisanji.py 
+  778  vi scraping_nijisanji.py 
+  779  python3 scraping_nijisanji.py 
+  780  vi scraping_nijisanji.py 
+  781  python3 scraping_nijisanji.py 
+  782  vi scraping_nijisanji.py 
+  783  python3 scraping_nijisanji.py 
+  784  vi scraping_nijisanji.py 
+  785  python3 scraping_nijisanji.py 
+  786  vi scraping_nijisanji.py 
+  787  python3 scraping_nijisanji.py 
+  788  :q
+  789  vi scraping_nijisanji.py 
+  790  python3 scraping_nijisanji.py 
+  791  vi scraping_nijisanji.py 
+  792  python3 scraping_nijisanji.py 
+  793  vi scraping_nijisanji.py 
+  794  python3 scraping_nijisanji.py 
+  795  vi scraping_nijisanji.py 
+  796  python3 scraping_nijisanji.py 
+  797  vi scraping_nijisanji.py 
+  798  python3 scraping_nijisanji.py 
+  799  vi scraping_nijisanji.py 
+  800  python3 scraping_nijisanji.py 
+  801  vi scraping_nijisanji.py 
+  802  python3 scraping_nijisanji.py 
+  803  vi scraping_nijisanji.py 
+  804  python3 scraping_nijisanji.py 
+  805  vi scraping_nijisanji.py 
+  806  python3 scraping_nijisanji.py 
+  807  vi scraping_nijisanji.py 
+  808  python3 scraping_nijisanji.py 
+  809  vi scraping_nijisanji.py 
+  810  python3 scraping_nijisanji.py 
+  811  vi scraping_nijisanji.py 
+  812  python3 scraping_nijisanji.py 
+  813  vi scraping_nijisanji.py 
+  814  python3 scraping_nijisanji.py 
+  815  vi scraping_nijisanji.py 
+  816  python3 scraping_nijisanji.py 
+  817  vi scraping_nijisanji.py 
+  818  python3 scraping_nijisanji.py 
+  819  vi scraping_nijisanji.py 
+  820  python3 scraping_nijisanji.py 
+  821  vi scraping_nijisanji.py 
+  822  python3 scraping_nijisanji.py 
+  823  vi scraping_nijisanji.py 
+  824  python3 scraping_nijisanji.py 
+  825  vi scraping_nijisanji.py 
+  826  python3 scraping_nijisanji.py 
+  827  vi scraping_nijisanji.py 
+  828  python3 scraping_nijisanji.py 
+  829  vi scraping_nijisanji.py 
+  830  python3 scraping_nijisanji.py 
+  831  vi scraping_nijisanji.py 
+  832  exit
+  833  cd /mnt/c/
+  834  ls
+  835  cd github/
+  836  ls
+  837  cd ../
+  838  ls
+  839  cd python中級講座/
+  840  ls
+  841  cd github/
+  842  ls
+  843  cd python_session
+  844  ls
+  845  cd lo
+  846  cd plotter/
+  847  ls
+  848  vi bar_plotter.py 
+  849  ls
+  850  vi bar_plotter.py 
+  851  vi ../scraping_nijisanji.py 
+  852  exit
+  853  cd /mnt/c/python中級講座/
+  854  ls
+  855  cd github/
+  856  ls
+  857  cd python_session
+  858  ls
+  859  cd scraper/
+  860  ls
+  861  vi tag_factory.py 
+  862  ls
+  863  vi ranking_scraper.py 
+  864  vi test.py
+  865  python3 test.py 
+  866  vi test.py
+  867  mv test.py ../
+  868  cd ../
+  869  vi test.py 
+  870  ./test.py 
+  871  vi test.py 
+  872  python3 test.py 
+  873  vi test.py 
+  874  chmod a+x test.py 
+  875  ./test.py 
+  876  vi test.py 
+  877  ./test.py 
+  878  cd /mnt/c/python中級講座/
+  879  ls
+  880  cd github/
+  881  ls
+  882  cd python_session
+  883  ls
+  884  cd db/
+  885  ls
+  886  vi vtuber_rank_db.py 
+  887  cd ../../
+  888  ls
+  889  cd python_session
+  890  ls
+  891  vi readme.txt
+  892  cd db
+  893  ls
+  894  vi vtuber_rank_db.py 
+  895  cd ..
+  896  git status ./
+  897  git add db/vtuber_profile_db.py db/vtuber_rank_db.py scraping_vtuber_rank.py 
+  898  git commit -m "DBからidカラム削除"
+  899  ls
+  900  git push origin de
+  901  git push origin master 
+  902  git status ./
+  903  git add doc/python中級講座_2020.pptx 
+  904  git commit -m "doc"
+  905  git push origin master
+  906  exit
+  907  cd /mnt/c/python中級講座/
+  908  ls
+  909  cd github/do
+  910  ls
+  911  cd github/
+  912  ls
+  913  cd python_session
+  914  ls
+  915  cd doc/
+  916  ls
+  917  cp python中級講座_2020.pptx ==python中級講座_2020.pptx 
+  918  ls
+  919  rm ==\=\=python中級講座_2020.pptx 
+  920  ls
+  921  cd ../db
+  922  ls
+  923  vi vtuber_db.py 
+  924  ls
+  925  cd ../plotter/
+  926  ls
+  927  vi plotter.py 
+  928  ls
+  929  cd ../scraper/
+  930  ls
+  931  vi hello_scraping.py 
+  932  python3 hello_scraping.py 
+  933  vi hello_scraping.py 
+  934  python3 hello_scraping.py 
+  935  vi hello_scraping.py 
+  936  python3 hello_scraping.py 
+  937  ls
+  938  vi tag_factory.py 
+  939  vi ranking_scraper.py 
+  940  exit
+  941  cd /mnt/c/python中級講座/
+  942  ls
+  943  cd github/
+  944  ls
+  945  cd python_session
+  946  ls
+  947  git status ./
+  948  git add doc/python中級講座_2020.pptx scraper/hello_scraping.py 
+  949  git commit -m "a"
+  950  git push origin de
+  951  git push origin master 
+  952  exit
+  953  cd /mnt/c/python中級講座/
+  954  ls
+  955  cd python_session/
+  956  git status 
+  957  ls
+  958  cd ../../
+  959  cd github/
+  960  ls
+  961  cd ..
+  962  ls
+  963  cd python中級講座/
+  964  ls
+  965  cd github/
+  966  ls
+  967  cd python_session
+  968  git status
+  969  git push origin master 
+  970  exit
+  971  cdpy
+  972  ls
+  973  cd db
+  974  ls
+  975  vi vtuber_profile_db.py 
+  976  vi dbkey.py 
+  977  vi vtuber_profile_db.py 
+  978  vi ../scraper/nijisanji_scraper.py 
+  979  cd ../scraper/
+  980  grep unknown *
+  981  grep -R unknown *
+  982  cd ..
+  983  grep -R unknown *
+  984  vi scraper/ranking_scraper.py 
+  985  vi scraper/nijisanji_scraper.py 
+  986  ls
+  987  vi dump.py 
+  988  exit
+  989  cdpy
+  990  ls
+  991  view scraping_vtuber_rank.py 
+  992  vi plotter/plotter.py 
+  993  exit
+  994  cd /mnt/c/python中級講座/
+  995  cd github/
+  996  ls
+  997  cd python_session
+  998  ls
+  999  wpd
+ 1000  pwd
+ 1001  cd /mnt/c/python中級講座/github/python_session
+ 1002  vi ~/.bashrc
+ 1003  source ~/.bashrc 
+ 1004  cdpy 
+ 1005  cd
+ 1006  cdpy
+ 1007  ls
+ 1008  cd scraper/
+ 1009  ls
+ 1010  cd ../
+ 1011  vi scraping_nijisanji.py 
+ 1012  cp scraping_nijisanji.py dump.json
+ 1013  vi dump.json 
+ 1014  mv dump.json dump.py
+ 1015  vi dump.py 
+ 1016  vi scraping_nijisanji.py 
+ 1017  python3 scraping_nijisanji.py 
+ 1018  vi scraping_nijisanji.py 
+ 1019  python3 scraping_nijisanji.py 
+ 1020  vi scraping_nijisanji.py 
+ 1021  vi scraper/tag_factory.py 
+ 1022  python3 scraping_nijisanji.py 
+ 1023  vi scraper/tag_factory.py 
+ 1024  python3 scraping_nijisanji.py 
+ 1025  cd db
+ 1026  ls
+ 1027  vi vtuber_rank_db.py 
+ 1028  cd ..
+ 1029  ls
+ 1030  vi scraping_nijisanji.py 
+ 1031  cp scraping_nijisanji.py scraping_nijisanji.py.org
+ 1032  vi scraping_nijisanji.py
+ 1033  vi dump.py 
+ 1034  vi scraping_nijisanji.py
+ 1035  python3 scraping_nijisanji.py 
+ 1036  vi scraping_nijisanji.py
+ 1037  python3 scraping_nijisanji.py 
+ 1038  vi dump.py 
+ 1039  python3 dump.py 
+ 1040  ls -tl
+ 1041  vi test.yaml 
+ 1042  vi dump.py 
+ 1043  python3 dump.py 
+ 1044  ls -tl
+ 1045  vi test.yaml 
+ 1046  vi dump.py 
+ 1047  python3 dump.py 
+ 1048  vi test.yaml 
+ 1049  vi dump.py 
+ 1050  python3 dump.py 
+ 1051  vi dump.py 
+ 1052  python3 dump.py 
+ 1053  vi dump.py 
+ 1054  vi scraping_nijisanji.py
+ 1055  python3 scraping_nijisanji.py 
+ 1056  vi scraping_nijisanji.py
+ 1057  python3 scraping_nijisanji.py 
+ 1058  vi scraping_nijisanji.py
+ 1059  python3 scraping_nijisanji.py 
+ 1060  vi scraping_nijisanji.py
+ 1061  python3 scraping_nijisanji.py 
+ 1062  vi scraping_nijisanji.py
+ 1063  python3 scraping_nijisanji.py 
+ 1064  vi scraping_nijisanji.py
+ 1065  python3 scraping_nijisanji.py 
+ 1066  vi scraping_nijisanji.py
+ 1067  python3 scraping_nijisanji.py 
+ 1068  ls -tl
+ 1069  vi scraping_nijisanji.py
+ 1070  python3 scraping_nijisanji.py 
+ 1071  vi scraping_nijisanji.py
+ 1072  ls -tl
+ 1073  sqlite3 nijisanji_profile.db 
+ 1074  vi scraping_nijisanji.py
+ 1075  python3 scraping_nijisanji.py 
+ 1076  rm nijisanji_profile.db 
+ 1077  python3 scraping_nijisanji.py 
+ 1078  rm nijisanji_profile.db 
+ 1079  vi scraping_nijisanji.py
+ 1080  python3 scraping_nijisanji.py 
+ 1081  vi scraping_nijisanji.py
+ 1082  python3 scraping_nijisanji.py 
+ 1083  ls
+ 1084  ls -tl
+ 1085  sqlite3 nijisanji_profile.db 
+ 1086  vi scraping_nijisanji.py
+ 1087  python3 scraping_nijisanji.py 
+ 1088  ls
+ 1089  vi scraping_vtuber_rank.py 
+ 1090  vi db/vtuber_rank_db.py 
+ 1091  vi scraping_vtuber_rank.py 
+ 1092  python3 scraping_vtuber_rank.py 
+ 1093  sqlite3 vtuber_rank.db 
+ 1094  vi scraping_vtuber_rank.py 
+ 1095  vi scraping_nijisanji.py
+ 1096  python3 scraping_nijisanji.py 
+ 1097  vi nijisanji_profiles.yaml 
+ 1098  vi scraping_nijisanji.py
+ 1099  python3 scraping_nijisanji.py 
+ 1100  vi scraping_nijisanji.py
+ 1101  python3 scraping_nijisanji.py 
+ 1102  vi scraping_nijisanji.py
+ 1103  python3 scraping_nijisanji.py 
+ 1104  vi scraping_nijisanji.py
+ 1105  python3 scraping_nijisanji.py 
+ 1106  vi scraping_nijisanji.py
+ 1107  python3 scraping_nijisanji.py 
+ 1108  vi scraping_nijisanji.py
+ 1109  python3 scraping_nijisanji.py 
+ 1110  vi scraping_nijisanji.py
+ 1111  python3 scraping_nijisanji.py 
+ 1112  vi scraping_nijisanji.py
+ 1113  python3 scraping_nijisanji.py 
+ 1114  vi scraping_nijisanji.py
+ 1115  python3 scraping_nijisanji.py 
+ 1116  vi scraping_nijisanji.py
+ 1117  python3 scraping_nijisanji.py 
+ 1118  vi scraping_nijisanji.py
+ 1119  python3 scraping_nijisanji.py 
+ 1120  vi scraping_nijisanji.py
+ 1121  python3 scraping_nijisanji.py 
+ 1122  vi scraping_nijisanji.py
+ 1123  python3 scraping_nijisanji.py 
+ 1124  ls
+ 1125  ls -tl
+ 1126  sqlite3 nijisanji_profile.db 
+ 1127  git status ./
+ 1128  git push db/vtuber_profile_db.py db/vtuber_rank_db.py doc/python中級講座_2020.pptx scraper/nijisanji_scraper.py scraper/tag_factory.py scraping_nijisanji.py scraping_vtuber_rank.py 
+ 1129  git add db/vtuber_profile_db.py db/vtuber_rank_db.py doc/python中級講座_2020.pptx scraper/nijisanji_scraper.py scraper/tag_factory.py scraping_nijisanji.py scraping_vtuber_rank.py 
+ 1130  git status ./
+ 1131  rm doc/==doc/\=\=python中級講座_2020.pptx 
+ 1132  git status ./
+ 1133  git commit -m "q"
+ 1134  git push origin master 
+ 1135  exit
+ 1136  ls
+ 1137  cdpy
+ 1138  ls
+ 1139  vi test.py
+ 1140  python3 test.py
+ 1141  vi test.py
+ 1142  python3 test.py
+ 1143  vi test.py
+ 1144  python3 test.py
+ 1145  vi test.py
+ 1146  python3 test.py 
+ 1147  vi test.py
+ 1148  python3 test.py 
+ 1149  vi test.py
+ 1150  python3 test.py 
+ 1151  vi test.py
+ 1152  python3 test.py 
+ 1153  vi test.py
+ 1154  exit
+ 1155  cdpy
+ 1156  ls
+ 1157  mv scraping_rank_async.py scraping_rank_thread.py
+ 1158  vi scraping_rank_thread.py 
+ 1159  cd scraper
+ 1160  ls
+ 1161  vi ranking_scraper_thread.py 
+ 1162  exit
+ 1163  cdpy
+ 1164  ls
+ 1165  cd scraper
+ 1166  ls
+ 1167  vi ranking_scraper.py 
+ 1168  cd ../
+ 1169  vi scraping_rank_thread.py 
+ 1170  python3 scraping_rank_thread.py 
+ 1171  vi scraping_rank_thread.py 
+ 1172  python3 scraping_rank_thread.py 
+ 1173  vi scraping_rank_thread.py 
+ 1174  python3 scraping_rank_thread.py 
+ 1175  vi scraping_rank_thread.py 
+ 1176  python3 scraping_rank_thread.py 
+ 1177  vi scraping_rank_thread.py 
+ 1178  python3 scraping_rank_thread.py 
+ 1179  vi scraping_rank_thread.py
+ 1180  python3 scraping_rank_thread.py 
+ 1181  time python3 scraping_rank_thread.py 
+ 1182  vi scraping_rank_thread.py
+ 1183  time python3 scraping_rank_thread.py 
+ 1184  vi scraping_rank_thread.py
+ 1185  time python3 scraping_rank_thread.py 
+ 1186  vi scraping_rank_thread.py
+ 1187  time python3 scraping_rank_thread.py 
+ 1188  vi scraping_rank_thread.py
+ 1189  time python3 scraping_rank_thread.py 
+ 1190  git status
+ 1191  git add doc/python中級講座_2020.pptx  scraper/ranking_scraper_thread.py test.py scraping_rank_thread.py 
+ 1192  git status
+ 1193  git commit -m "s"
+ 1194  git push origin master
+ 1195  exit
+ 1196  cdpy
+ 1197  ls
+ 1198  vi scraping_rank_thread.py 
+ 1199  python3 scraping_rank_thread.py 
+ 1200  ンヌグム
+ 1201  python3 scraping_rank_thread.py 
+ 1202  ls
+ 1203  sqlite3 db/vtuber_rank.db 
+ 1204  ls
+ 1205  vi scraping_nijisanji.py
+ 1206  vi draw_vtuber.py 
+ 1207  python3 draw_vtuber.py 
+ 1208  vi scraping_rank_thread.py 
+ 1209  python3 scraping_rank_thread.py 
+ 1210  vi scraping_rank_thread.py 
+ 1211  ./scraping_rank_thread.py 
+ 1212  vi scraping_rank_thread.py 
+ 1213  ./scraping_rank_thread.py 
+ 1214  vi scraping_rank_thread.py 
+ 1215  python3 scraping_rank_thread.py 
+ 1216  vi scraping_rank_thread.py 
+ 1217  python3 scraping_rank_thread.py 
+ 1218  python3 scraping_rank_thread.py 6
+ 1219  vi scraping_rank_thread.py 6
+ 1220  python3 scraping_rank_thread.py
+ 1221  ls
+ 1222  ls -tl
+ 1223  vi scraping_rank_thread.py 
+ 1224  python3 scraping_rank_thread.py a
+ 1225  vi scraping_rank_thread.py 6
+ 1226  python3 scraping_rank_thread.py 6
+ 1227  vi scraping_rank_thread.py 6
+ 1228  python3 scraping_rank_thread.py 1
+ 1229  vi scraping_rank_thread.py 6
+ 1230  vi scraping_rank_thread.py
+ 1231  python3 scraping_rank_thread.py 6
+ 1232  sqlite3 db/vtuber_rank.db 
+ 1233  git status ./
+ 1234  git add doc/python中級講座_2020.pptx draw_vtuber.py scraping_rank_thread.py scraper/ranking_scraper_thread.py db/vtuber_rank.db 
+ 1235  git rm scraper/__pycache__/__init__.cpython-36.pyc 
+ 1236  git checkout scraper/__pycache__/__init__.cpython-36.pyc 
+ 1237  git rm scraper/__pycache__/__init__.cpython-36.pyc 
+ 1238  git status ./
+ 1239  git rm vtuber.db 
+ 1240  git checkout vtuber.db 
+ 1241  git rm vtuber.db 
+ 1242  git status ./
+ 1243  rm db/vtuber.db 
+ 1244  rm nijisanji_profile.db
+ 1245  vi nijisanji_profiles.yaml 
+ 1246  rm nijisanji_profiles.yaml 
+ 1247  ls
+ 1248  git status ./
+ 1249  rm scraping_nijisanji.py.org 
+ 1250  ls
+ 1251  git status ./
+ 1252  rm vtuber_rank.db 
+ 1253  git status ./
+ 1254  vi test.yaml 
+ 1255  rm test.yaml 
+ 1256  ls
+ 1257  git status ./
+ 1258  vi dump.py 
+ 1259  ls
+ 1260  vi scraping_nijisanji.py 
+ 1261  ls
+ 1262  vi scraping_nijisanji.py 
+ 1263  python3 scraping_nijisanji.py 
+ 1264  vi scraping_nijisanji.py 
+ 1265  ls
+ 1266  vi scraping_nijisanji.py 
+ 1267  python3 scraping_nijisanji.py 
+ 1268  vi scraping_nijisanji.py 
+ 1269  python3 scraping_nijisanji.py 
+ 1270  vi scraping_nijisanji.py 
+ 1271  python3 scraping_nijisanji.py 
+ 1272  vi scraping_nijisanji.py 
+ 1273  python3 scraping_nijisanji.py 
+ 1274  vi db/nijisanji_db.yaml 
+ 1275  exit
+ 1276  cdpy
+ 1277  ls
+ 1278  git status ./
+ 1279  ls
+ 1280  vi draw_vtuber.py 
+ 1281  ls
+ 1282  vi scraping_vtuber_rank.py 
+ 1283  vi scraping_rank_thread.py 
+ 1284  git rm scraping_vtuber_rank.py 
+ 1285  git mv scraping_rank_thread.py scraping_rank.py
+ 1286  ls
+ 1287  vi scraping_nijisanji.py 
+ 1288  vi draw_vtuber.py 
+ 1289  git mv draw_vtuber.py plot_rank.py
+ 1290  ls
+ 1291  cp scraping_nijisanji.py plot_nijisanji.py
+ 1292  ls
+ 1293  vi scraping_nijisanji.py 
+ 1294  grep Proc *
+ 1295  vi scraping_nijisanji.py 
+ 1296  vi scraper/ranking_scraper
+ 1297  vi scraper/ranking_scraper_thread.py 
+ 1298  vi scraping_rank.py 
+ 1299  vi scraper/ranking_scraper_thread.py 
+ 1300  python3 scraping_nijisanji.py 
+ 1301  vi db/nijisanji_db.yaml 
+ 1302  cp db/nijisanji_db.yaml db/nijisanji_db.yaml .bak
+ 1303  cp db/nijisanji_db.yaml db/nijisanji_db.yaml.bak
+ 1304  python3 scraping_nijisanji.py 
+ 1305  vi db/nijisanji_db.yaml
+ 1306  python3 scraping_nijisanji.py 
+ 1307  time python3 scraping_nijisanji.py 
+ 1308  git status ./
+ 1309  git add db/nijisanji_db.yaml scraper/data_formatter.py scraper/nijisanji_scraper.py scraper/tag_factory.py scraping_nijisanji.py plot_nijisanji.py 
+ 1310  git commit -m "a"
+ 1311  git push origin master
+ 1312  git status
+ 1313  cdpy
+ 1314  ls
+ 1315  cd scraper/
+ 1316  ls
+ 1317  vi nijisanji_scraper.py 
+ 1318  python3 nijisanji_scraper.py 
+ 1319  vi nijisanji_scraper.py 
+ 1320  python3 nijisanji_scraper.py 
+ 1321  vi nijisanji_scraper.py 
+ 1322  python3 nijisanji_scraper.py 
+ 1323  vi nijisanji_scraper.py 
+ 1324  python3 nijisanji_scraper.py 
+ 1325  vi nijisanji_scraper.py 
+ 1326  python3 nijisanji_scraper.py 
+ 1327  vi nijisanji_scraper.py 
+ 1328  python3 nijisanji_scraper.py 
+ 1329  vi nijisanji_scraper.py 
+ 1330  python3 nijisanji_scraper.py 
+ 1331  vi tag_factory.py 
+ 1332  python3 nijisanji_scraper.py 
+ 1333  vi data_formatter.py 
+ 1334  python3 nijisanji_scraper.py 
+ 1335  cd ../
+ 1336  vi scraping_nijisanji.py 
+ 1337  ls
+ 1338  vi plot_nijisanji.py 
+ 1339  pwd
+ 1340  cdpy
+ 1341  cd scraper
+ 1342  ls
+ 1343  ls ../../../python_session/SESSION/scraper/hololive_scraper.py .
+ 1344  cp ../../../python_session/SESSION/scraper/hololive_scraper.py .
+ 1345  ls
+ 1346  vi hololive_scraper.py 
+ 1347  exit
+ 1348  cdpy
+ 1349  ls
+ 1350  pyt
+ 1351  ls
+ 1352  pyth
+ 1353  ls
+ 1354  python3 scraping_nijisanji.py 
+ 1355  ls
+ 1356  vi plot_nijisanji.py 
+ 1357  python3 plot_nijisanji.py 
+ 1358  sqlite3 db/vtuber_rank.db 
+ 1359  ls
+ 1360  vi scraper/nijisanji_scraper.py 
+ 1361  exit
+ 1362  echo "set bell-style none" >> ~/.inputrc
+ 1363  echo "set visualbell t_vb=" >> ~/.vimrc
+ 1364  vi ~/.vimrc
+ 1365  exit
+ 1366  cdpy 
+ 1367  cd scraper/
+ 1368  ls
+ 1369  vi hololive_scraper.py 
+ 1370  python3 hololive_scraper.py 
+ 1371  vi hololive_scraper.py 
+ 1372  python3 hololive_scraper.py 
+ 1373  vi hololive_scraper.py 
+ 1374  python3 hololive_scraper.py 
+ 1375  vi hololive_scraper.py 
+ 1376  python3 hololive_scraper.py 
+ 1377  vi hololive_scraper.py 
+ 1378  python3 hololive_scraper.py 
+ 1379  vi hololive_scraper.py 
+ 1380  python3 hololive_scraper.py 
+ 1381  cd ../
+ 1382  ls
+ 1383  cp scraping_nijisanji.py scraping_hololive.py
+ 1384  vi scraping_hololive.py 
+ 1385  python3 scraping_hololive.py 
+ 1386  vi db/hololive_db.yaml 
+ 1387  vi scraper/hololive_scraper.py 
+ 1388  python3 scraping_hololive.py 
+ 1389  vi db/hololive_db.yaml 
+ 1390  ls
+ 1391  cd scraper
+ 1392  ls
+ 1393  vi hololive_scraper.py 
+ 1394  python3 hololive_scraper.py 
+ 1395  ls
+ 1396  vi hololive_scraper.py 
+ 1397  python3 hololive_scraper.py 
+ 1398  vi hololive_scraper.py 
+ 1399  python3 hololive_scraper.py 
+ 1400  vi nijisanji_scraper.py
+ 1401  python3 nijisanji_scraper.py 
+ 1402  cd ..
+ 1403  python3 scraping_nijisanji.py 
+ 1404  vi db/nijisanji_db.yaml
+ 1405  ls
+ 1406  python3 scraping_hololive.py 
+ 1407  vi db/hololive_db.yaml 
+ 1408  ls
+ 1409  cdpy
+ 1410  ls
+ 1411  mkdir ML
+ 1412  cd ML
+ 1413  ls
+ 1414  wget http://downloads.dbpedia.org/2016-10/core-i18n/ja/nif_context_ja.ttl.bz2
+ 1415  ls
+ 1416  rm nif_context_ja.ttl.bz2 
+ 1417  sudo apt install mecab
+ 1418  sudo apt install libmecab-dev
+ 1419  sudo apt install mecab-ipadic-utf-8
+ 1420  sudo apt install mecab-ipadic-utf8
+ 1421  mecab
+ 1422  pip3 install mecab-python3
+ 1423  sudo apt install libc6-dev build-essential
+ 1424  pip3 install mecab-python3
+ 1425  sudo apt install swig
+ 1426  pip3 install mecab-python3
+ 1427  history > tmp.log

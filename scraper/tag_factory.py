@@ -40,6 +40,26 @@ class BSTag(object):
     def param(self):
         data_sets = []
         for param in self._param_iterator():
+
+            import MeCab
+            import unicodedata
+            tagger = MeCab.Tagger('-Ochasen -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
+            tagger.parse('')
+            # node = tagger.parseToNode(unicodedata.normalize('NFKC', param))
+            node = tagger.parseToNode(param)
+            print('-' * 80)
+            print(param)
+            while node:
+                print(node)
+                '''
+                if node.feature.startswith('名詞'):
+                    if node.surface.startswith('年齢'):
+                        if node.next.feature.startswith('記号'):
+                            print('年齢 = {}'.format(node.next.next.surface))
+                '''
+                node = node.next
+
+
             if '歳のとり方' in param or '歳はとる' in param:
                 # 森中のややこしいパラメータ構造をうまく処理できてない。捨て。
                 continue
