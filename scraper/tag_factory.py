@@ -28,12 +28,6 @@ class BSTag(object):
         if self._tag.name == 'ul' or self._tag.name == 'p':
             for line in self._tag.text.splitlines():
                 yield line
-        elif self._tag.name == 'div':
-            for tr in self._tag.find_all('tr'):
-                yield tr.text
-        elif self._tag.name == 'table':
-            for tr in self._tag.find_all('tr'):
-                yield tr.text
         else:
             raise BSTagError('no iterator for this tag : {}'.format(self._tag.name))
 
