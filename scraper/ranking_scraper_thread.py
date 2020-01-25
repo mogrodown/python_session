@@ -38,7 +38,7 @@ class RankingScraper(object):
                 vtuber[dbkey.VTUBER_TWITTER_KEY] = dbkey.UNKNOWN_TEXT
                 vtuber[dbkey.VTUBER_YOUTUBE_KEY] = dbkey.UNKNOWN_TEXT
                 vtuber[dbkey.VTUBER_NAME_KEY] = tr.child('img').alt().split('(')[0]
-                vtuber[dbkey.VTUBER_RANK_KEY] = tr.strong()
+                vtuber[dbkey.VTUBER_RANK_KEY] = int(tr.strong().replace('位', ''))
                 vtuber['url'] = tr.url()
                 vtubers.append(vtuber)
 
@@ -88,7 +88,7 @@ class RankingScraper(object):
         except BSTagError as ex:
             print('failed to get {} office : {}'.format(vtuber[dbkey.VTUBER_NAME_KEY], ex.args))
 
-        # チャンネル詳細のタグ参nk': '1位', 'url': '/user/D780B63C2DEBA9A2_fa95ae'}, {'office': 'unknown', 'twitj照
+        # チャンネル情報解析
         for tag in tag.each('div', {'class': 'channel-stat'}):
 
             # 全テキストを抽出し、各行(パラメータ)からファン数、総再生回数、Twitterを抽出
