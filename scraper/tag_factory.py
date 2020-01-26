@@ -28,6 +28,12 @@ class BSTag(object):
         if self._tag.name == 'ul' or self._tag.name == 'p':
             for line in self._tag.text.splitlines():
                 yield line
+        elif self._tag.name == 'div':
+            for tr in self._tag.find_all('tr'):
+                yield tr.text
+        elif self._tag.name == 'table':
+            for tr in self._tag.find_all('tr'):
+                yield tr.text
         else:
             raise BSTagError('no iterator for this tag : {}'.format(self._tag.name))
 
@@ -35,6 +41,8 @@ class BSTag(object):
         data_sets = []
         for param in self._param_iterator():
 
+
+            '''
             import MeCab
             import unicodedata
             tagger = MeCab.Tagger('-Ochasen -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
@@ -45,13 +53,13 @@ class BSTag(object):
             print(param)
             while node:
                 print(node)
-                '''
                 if node.feature.startswith('名詞'):
                     if node.surface.startswith('年齢'):
                         if node.next.feature.startswith('記号'):
-                            print('年齢 = {}'.format(node.next.next.surface))
-                '''
+                            print('年齢 ====== {}'.format(node.next.next.surface))
                 node = node.next
+            '''
+
 
 
             if '歳のとり方' in param or '歳はとる' in param:
