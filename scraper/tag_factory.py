@@ -3,6 +3,30 @@ import requests
 import re
 from scraper.data_formatter import age, height, birthday
 
+
+class TextMining(object):
+    def __init__(self, text):
+        import MeCab
+        import unicodedata
+        tagger = MeCab.Tagger('-Ochasen -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
+        tagger.parse('')
+        # node = tagger.parseToNode(unicodedata.normalize('NFKC', text))
+        node = tagger.parseToNode(text)
+
+        while node:
+            # print(node.surface)
+            if node.feature.startswith('名詞'):
+                if node.surface.startswith('年齢'):
+                    print('{} => {} => {}'.format(node.surface, node.next.surface, node.next.next.surface))
+            '''
+            if node.feature.startswith('名詞'):
+                if node.surface.startswith('年齢'):
+                    if node.next.feature.startswith('記号'):
+                        print('年齢 ====== {}'.format(node.next.next.surface))
+            '''
+            node = node.next
+        
+
 class BSTagError(Exception):
     pass
 
@@ -41,26 +65,7 @@ class BSTag(object):
         data_sets = []
         for param in self._param_iterator():
 
-
-            '''
-            import MeCab
-            import unicodedata
-            tagger = MeCab.Tagger('-Ochasen -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
-            tagger.parse('')
-            # node = tagger.parseToNode(unicodedata.normalize('NFKC', param))
-            node = tagger.parseToNode(param)
-            print('-' * 80)
-            print(param)
-            while node:
-                print(node)
-                if node.feature.startswith('名詞'):
-                    if node.surface.startswith('年齢'):
-                        if node.next.feature.startswith('記号'):
-                            print('年齢 ====== {}'.format(node.next.next.surface))
-                node = node.next
-            '''
-
-
+            mining = TextMining(param)
 
             if '歳のとり方' in param or '歳はとる' in param:
                 # 森中のややこしいパラメータ構造をうまく処理できてない。捨て。
