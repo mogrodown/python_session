@@ -131,7 +131,11 @@ class NijisanjiScraper(object):
         return vtuber
 
 if __name__ == '__main__':
-    # print(NijisanjiScraper('樋口楓').profile())
+    '''
     print(NijisanjiScraper('森中花咲').profile())
-    # print(NijisanjiScraper('エクス・アルビオ').profile())
-    # print(NijisanjiScraper('笹木咲').profile())
+    print(NijisanjiScraper('月ノ美兎').profile())
+    print(NijisanjiScraper('勇気ちひろ').profile())
+    print(NijisanjiScraper('える').profile())
+    print(NijisanjiScraper('樋口楓').profile())
+    '''
+    print(NijisanjiScraper('静凛').profile())

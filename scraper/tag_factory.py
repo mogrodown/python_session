@@ -4,27 +4,282 @@ import re
 from scraper.data_formatter import age, height, birthday
 
 
+class MecabNode(object):
+
+    def __init__(self, node):
+
+        self.is_end = True
+
+        if node:
+            self._node = node
+            self.text = node.surface
+            self.detail = node.feature
+            self.is_end = False
+
+            # 品詞(part of speech)
+            t = self.detail.split(',')
+            self._POS = t[0:2]
+
+    def next(self):
+        return MecabNode(self._node.next) if self._node.next else None
+
+    def prev(self):
+        return MecabNode(self._node.prev) if self._node.prev else None
+
+    def search(self, formula):
+        return re.search(formula, self.text)
+
+    def is_kakko_kai(self):
+        if self._POS[0] == '記号' and self._POS[1] == '括弧開':
+            return True
+        return False
+
+    def is_sentence_break(self):
+        if self._POS[0] == 'BOS/EOS':
+            return True
+        return False
+        # BOS : beginning of sentence
+        # EOS : end of sentence
+
+    def is_reading_point(self):
+        # 、等の読点か否か判定。
+        if self._POS[0] == '記号' and self._POS[1] == '読点':
+            return True
+        return False
+
+
 class TextMining(object):
+
+    def _is_transition(self, node):
+
+        if not node.next.feature.startswith('記号'):
+            return False, None
+
+        if node.next.surface.startswith('→'):
+            return True, node.next.next
+
+        return False, None
+
+    def _param_age(self, node):
+        while node:
+            if node.feature.startswith('名詞'):
+                if node.surface.startswith('年齢'):
+                    if node.next.feature.startswith('記号'):
+                        age_node = node.next.next
+                        print('年齢 1')
+                    elif node.next.feature.startswith('名詞'):
+                        age_node = node.next
+                        print('年齢 2')
+                    else:
+                        print('ERRRRRRRRRRRRRRRRR')
+
+                    result = self._is_transition(age_node)
+                    while result[0]:
+                        age_node = result[1]
+                        result = self._is_transition(age_node)
+
+                    print('年齢 ====== {}'.format(age_node.surface))
+
+            node = node.next
+
+    def find_kakari(self, chunk):
+
+        is_kakari = False
+        while not is_kakari:
+            for token in chunk.tokens:
+                fs = token.feature.split(',')
+                print(fs)
+                if fs[0] == '名詞' and fs[1] == '非自立':
+                    continue
+                if fs[0] == '助詞' or fs[0] == '記号' or fs[0] == '副詞':
+                    continue
+                if fs[0] == '記号':
+                    continue
+                is_kakari = True
+                break
+            else:
+                chunk = chunk.prev_links[0]
+        return chunk, token
+
+    def _age_mining(self, node):
+
+        while node:
+            match = node.search('[0-9]{1,5}歳')
+            if match:
+                print('-' * 80)
+                print(match[0])
+                b = []
+                prev = node.prev()
+                while(prev):
+                    # print(prev.text)
+                    # 文頭、括弧開、読点(、)が見つかったら、遡るのをやめる。
+                    if prev.is_sentence_break() or prev.is_kakko_kai() or prev.is_reading_point():
+                        break
+                    b.insert(0, prev.text)
+                    prev = prev.prev()
+                print(b)
+                a = ''.join(b) + match[0] 
+                print(a)
+
+                # CaboChaでチャンク解析
+                import CaboCha
+                from cabocha.analyzer import CaboChaAnalyzer, EndOfLinkException
+                analyzer = CaboChaAnalyzer('-f1')
+                # parser = CaboCha.Parser('-n1')
+                # parser = CaboCha.Parser('-f1')
+                # tree = parser.parse(a)
+                tree = analyzer.parse(a)
+                target_token = None
+
+                '''
+                for chunk in tree:
+                    for token in chunk:
+                        print(token)
+                '''
+
+                target_chunk = None
+                for chunk in tree:
+                    if re.search('[0-9]{1,5}歳', chunk.surface):
+                        target_chunk = chunk
+
+                print('ターゲットチャンクは {}'.format(target_chunk.surface))
+                is_param_format = False
+                for token in target_chunk.tokens:
+                    if '年齢' in token.surface:
+                        is_param_format = True
+                        break
+                print(token, is_param_format)
+
+                age = -1
+                if is_param_format:
+                    print('age = {}'.format(target_chunk.surface))
+                    for token in target_chunk.tokens:
+                        if token.surface.isnumeric():
+                            age = int(token.surface)
+                print(age)
+
+                if age == (-1):
+                    is_found = False
+                    for chunk in tree:
+                        try:
+                            if chunk.next_link == target_chunk:
+                                print('found chunk = {}, next = {}'.format(chunk, chunk.next_link))
+
+                                kakari = self.find_kakari(chunk)
+                                print('係元 = {}'.format(kakari))
+
+                                fs = kakari[1].feature.split(',')
+                                if not (fs[0] == '名詞' and fs[1] == '固有名詞' and fs[2] == '人名'):
+                                    is_found = True
+                                else:
+                                    tgt = kakari[0]
+                                    for c in tree:
+                                        print(c, c.next_link)
+                                        if c.next_link == tgt:
+                                            print('bbbb')
+                                            f = [t.feature for t in c]
+                                            break
+                                    verb = [a for a in f if a.split(',')[0] == '動詞']
+                                    v_comp = False
+                                    print('動詞 = {}'.format(verb))
+                                    if verb:
+                                        tgt = c
+                                        for c in tree:
+                                            print(c, c.next_link)
+                                            if c.next_link == tgt:
+                                                print('動詞にかかるチャンクは、{}'.format(c))
+                                                print([t.feature for t in c])
+                                                v_comp = True
+                                                break
+                                    else:
+                                        tgt = c
+                                        for c in tree:
+                                            print(c, c.next_link)
+                                            if c.next_link == tgt:
+                                                print('bbbb')
+                                                f = [t.feature for t in c]
+                                                print(f)
+                                                break
+
+                                    if not v_comp:
+                                        verb = [a for a in f if a.split(',')[0] == '動詞']
+                                        print('動詞 = {}'.format(verb))
+                                        if verb:
+                                            tgt = c
+                                            for c in tree:
+                                                print(c, c.next_link)
+                                                if c.next_link == tgt:
+                                                    print('動詞にかかるチャンクは、{}'.format(c))
+                                                    print([t.feature for t in c])
+
+                        except EndOfLinkException:
+                            pass
+
+
+
+                '''
+                if age == (-1):
+                    print(target.prev_links)
+                    
+                    while (True):
+                        for token in target.prev_links[0].tokens:
+                            print(token.feature)
+                            fs = token.feature.split(',')
+                            if not (fs[0] == '名詞' and fs[1] ==  and fs[0] != '助詞':
+                                break
+                        else:
+                            target = target.prev_links[0]
+                            continue
+                        print('qqq = {}'.format(token))
+                        break
+                '''
+                        
+
+                '''
+                for chunk in tree:
+                    try:
+                        if chunk.next_link == target:
+                            print('found chunk = {}, next = {}'.format(chunk, chunk.next_link))
+                    except EndOfLinkException:
+                        pass
+                '''
+
+                '''
+                for i in range(tree.chunk_size()):
+                    print('-' * 80)
+                    chunk = tree.chunk(i)
+
+                    # 現在のチャンクをトークンに分解して解析 ("ホロライブに" => "ホロライブ", "に")
+                    for j in range(chunk.token_pos, chunk.token_pos + chunk.token_size):
+                        token = tree.token(j)
+                        print('token = {}, {}'.format(token.surface, token.link))
+                        if '歳' in token.surface:
+                            target_token = (token, i)
+                '''
+
+                # print('target = {}, {}'.format(target_token[0].surface, target_token[1]))
+
+                # print(tree.toString(CaboCha.FORMAT_TREE))
+                # print(tree.toString(CaboCha.FORMAT_LATTICE))
+
+            node = node.next()
+
+
     def __init__(self, text):
+
         import MeCab
         import unicodedata
         tagger = MeCab.Tagger('-Ochasen -d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
         tagger.parse('')
-        # node = tagger.parseToNode(unicodedata.normalize('NFKC', text))
-        node = tagger.parseToNode(text)
 
-        while node:
-            # print(node.surface)
-            if node.feature.startswith('名詞'):
-                if node.surface.startswith('年齢'):
-                    print('{} => {} => {}'.format(node.surface, node.next.surface, node.next.next.surface))
-            '''
-            if node.feature.startswith('名詞'):
-                if node.surface.startswith('年齢'):
-                    if node.next.feature.startswith('記号'):
-                        print('年齢 ====== {}'.format(node.next.next.surface))
-            '''
-            node = node.next
+        text = unicodedata.normalize('NFKC', text)
+        text = text.replace('(', '（').replace(')', '）')
+
+        node = MecabNode(tagger.parseToNode(text))
+
+        # self._param_age(node)
+        self._age_mining(node)
+
         
 
 class BSTagError(Exception):
