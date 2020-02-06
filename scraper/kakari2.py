@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import sys
 import unicodedata
 
 
@@ -50,26 +51,28 @@ for chunk in from_chunks:
 
 
 # 係元が「しずりん」なので、「しずりん」の修飾(しずりんに係っているチャンク)を調べる。
-for chunk in tree:
-    try:
-        if chunk.next_link == from_chunks[0]:
-            break
-    except EndOfLinkException:
-        pass
-
-print(chunk)
-dump_token(chunk)
-
-tgt_chunk = chunk
+tgt_chunk = from_chunks[0]
+from_chunks = []
 for chunk in tree:
     try:
         if chunk.next_link == tgt_chunk:
-            print(chunk)
-            dump_token(chunk)
-            tgt_chunk = chunk
-            break
+            from_chunks.append(chunk)
     except EndOfLinkException:
         pass
+
+print(from_chunks)
+
+tgt_chunk = from_chunks[0]
+from_chunks = []
+for chunk in tree:
+    try:
+        if chunk.next_link == tgt_chunk:
+            from_chunks.append(chunk)
+    except EndOfLinkException:
+        pass
+
+print(from_chunks)
+sys.exit(1)
 
 for chunk in tree:
     try:
