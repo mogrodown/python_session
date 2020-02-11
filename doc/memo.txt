@@ -1,0 +1,121 @@
+
+リスト内包表記：
+大規模なコードを見てるときに、必要でない部分は畳みたくなりませんか？
+
+
+import sqlite3
+c = sqlite3.connect('vtuber.db')
+c.execute('CREATE TABLE vtuber(name TEXT NOT NULL UNIQUE, office TEXT, follower INTEGER, view INTEGER)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("キズナアイ", "upd8", 2690000, 283505794)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("輝夜月", "VIC", 998000, 99028682)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("ミライアカリ", "元ENTUM", 736000, 65931691)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("電脳少女シロ", ".LIVE", 705000, 104839975)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("田中ヒメ鈴木ヒナ", "Unknown", 547000, 88535606)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("猫宮ひなた", "元ENTUM", 531000, 41202624)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("月ノ美兎", "にじさんじ", 465000, 62178315)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("ヨメミエトラ", "エイレーン一家", 422000, 52343621)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("白上フブキ", "ホロライブ", 381000, 35205441)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("本間ひまわり", "にじさんじ", 378000, 57173514)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("道明寺ここあ", "Unlimited", 338000, 75616023)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("YuNi", "upd8", 333000, 67577354)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("ゲーム部プロジェクト", "Unlimited", 326000, 168262131)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("夏実萌恵", "エイレーン一家", 316000, 24508391)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("笹木咲", "にじさんじ", 309000, 35397832)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("湊あくあ", "ホロライブ", 306000, 31503459)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("シフィ", "エイレーン一家", 279000, 47728576)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("御伽原江良", "にじさんじ", 277000, 26795439)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("椎名唯華", "にじさんじ", 276000, 41723532)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("ときのそら", "ホロライブ", 276000, 29600013)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("樋口楓", "にじさんじ", 273000, 27288370)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("静凛", "にじさんじ", 266000, 35062363)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("花譜", "神椿", 261000, 37044380)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("富士葵", "Smarpris", 258000, 52968353)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("キミノミヤ", "upd8", 251000, 563251)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("夢月ロア", "にじさんじ", 248000, 18635080)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("リゼ・ヘルエスタ", "にじさんじ", 241000, 23421164)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("緑仙", "にじさんじ", 241000, 42827272)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("鈴鹿詩子", "にじさんじ", 236000, 35283974)')
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("バーチャルおばあちゃん(VB)", "Unknown", 234000, 4656829)')
+c.execute('COMMIT')
+for v in c.execute('SELECT * FROM vtuber'):
+	print(v)
+
+
+---------------------------------
+【p.57】
+html = requests.get('https://virtual-youtuber.userlocal.jp/user/D780B63C2DEBA9A2_fa95ae')
+bs = BeautifulSoup(html.text, 'html.parser')
+bs.find('div', {'class': 'box-office'}).text
+bs.find('div', {'class': 'box-office'}).text.strip()
+---------------------------------
+【p.59】
+bs.find('div', {'class': 'box-channel-info'}).find_all('div', {'class': 'channel-stat'})
+bs.find('div', {'class': 'box-channel-info'}).find_all('div', {'class': 'channel-stat'})[0].text
+bs.find('div', {'class': 'box-channel-info'}).find_all('div', {'class': 'channel-stat'})[0].text.split('\n')[2]
+---------------------------------
+import sqlite3
+c = sqlite3.connect('test.db')
+c.execute('CREATE TABLE vtuber(name TEXT NOT NULL UNIQUE, office TEXT, follower INTEGER, view INTEGER)') 
+c.execute('INSERT INTO vtuber(name, office, follower, view) VALUES("キズナアイ", "upd8", 2690000, 283505794)') 
+c.execute('COMMIT')
+for v in c.execute('SELECT * FROM vtuber'):
+    print(v)
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+html = requests.get('https://virtual-youtuber.userlocal.jp/document/ranking')
+bs = BeautifulSoup(html.text, 'html.parser')
+vtubers = [tr for tr in bs.find('table', {'class': 'table-ranking-yt'}).find_all('tr')]
+
+profiles = []
+for vtuber in vtubers:
+    name = vtuber.a.img['alt']
+    rank = vtuber.strong.text
+    html = requests.get('https://virtual-youtuber.userlocal.jp' + vtuber.a['href'])
+    bs2 = BeautifulSoup(html.text, 'html.parser')
+    follower = bs2.find('div', {'class': 'box-channel-info'}).find_all('div', {'class': 'channel-stat'})[0].text.split('\n')[2]
+    view = bs2.find('div', {'class': 'box-channel-info'}).find_all('div', {'class': 'channel-stat'})[1].text.split('\n')[2]
+    try:
+        office = bs2.find('div', {'class': 'box-office'}).text.strip()
+    except AttributeError:
+        print('scraping error : {}'.format(name))
+        office = 'Unknown'
+    profiles.append((name, rank, office, follower, view))
+
+
+---------------------------------
+【pandas①】
+import sqlite3
+import pandas as pd
+c = sqlite3.connect('vtuber.db')
+df = pd.read_sql_query('SELECT * FROM vtuber', c)
+pd.options.display.float_format='{:.2f}'.format
+
+o_df = df['office'].value_counts()
+
+---------------------------------
+import matplotlib.pyplot as plt
+import japanize_matplotlib
+
+plt.title('オフィス分布')
+plt.pie(o_df.tolist(), labels=o_df.index.tolist())
+plt.show()
+
+
+indexs = ['にじさんじ', 'upd8', 'ホロライブ', '.LIVE', 'エイレーン一家', '元ENTUM']
+
+njsj  = df[df['office']=='にじさんじ']['view'].sum()
+upd8  = df[df['office']=='upd8']['view'].sum()
+holv  = df[df['office']=='ホロライブ']['view'].sum()
+dotl  = df[df['office']=='.LIVE']['view'].sum()
+eyln  = df[df['office']=='エイレーン一家']['view'].sum()
+entum = df[df['office']=='元ENTUM']['view'].sum()
+
+values = [njsj, upd8, holv, dotl, eyln, entum]
+
+plt.title('総視聴数分布')
+plt.pie(values, labels=indexs)
+plt.show()
